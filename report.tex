@@ -1,0 +1,294 @@
+% @Author: Moez Bouhlel
+% @Author: Rihab Majdoub
+
+\documentclass[
+a4paper,
+12pt,
+onecolumn,
+titlepage,
+final,
+]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[shorthands=off,english,french]{babel}
+\usepackage{csquotes}
+
+\usepackage{abstract}
+\renewcommand{\abstractnamefont}{\large\bfseries}
+\usepackage[toc,page]{appendix}
+\renewcommand{\appendixtocname}{Annexes}
+
+%\usepackage[nottoc]{tocbibind}
+\usepackage[style=alphabetic,backend=bibtex8]{biblatex}
+\addbibresource{report/61-bibliography.bib}
+
+\usepackage{ifxetex,ifluatex}
+\usepackage{ifthen}
+
+\usepackage{amssymb,amsmath}
+\usepackage{gensymb}
+\usepackage{cfr-lm}
+
+%\usepackage{xltxtra,xunicode}
+%\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+%\setmainfont{TeX Gyre Pagella}
+%\setsansfont{FreeSans}
+%\setmonofont[Mapping=tex-ansi]{Monaco}
+
+\usepackage{color}
+\usepackage[table]{xcolor}
+
+\usepackage{lmodern}
+%\usepackage{tgpagella}
+\usepackage{palatino}
+\usepackage{helvet}
+\fontfamily{ppl}\selectfont
+% \fontsize{<nominal font size>}{<baselineskip>}\selectfont
+
+\setlength{\parskip}{8pt}
+\setlength{\parindent}{0pt}
+\renewcommand{\baselinestretch}{1.2}\normalsize
+
+\usepackage{graphicx}
+\graphicspath{{figures/}, {diagrams/}}
+\usepackage[update,prepend]{epstopdf}
+\usepackage{subcaption}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{needspace}
+
+\usepackage{caption}
+\captionsetup{justification=centering}
+\newcommand{\captionsource}[2][]{%
+    \ifthenelse{\equal{#1}{}}
+        {\small\textit{Source: #2}} % if empty
+        {\small\textit{Source: #2, \href{#1}{#1}} % else
+    }
+}
+
+\usepackage[intoc]{nomencl}
+\makenomenclature
+
+\usepackage{url}
+\usepackage[% setpagesize=false, % page size defined by xetex
+            % unicode=false, % unicode breaks when used with xetex
+            % xetex
+            ]{hyperref}
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={Moez Bouhlel; Rihab Majdoub},
+            pdftitle={La Platforme CityWatch},
+            pdfsubject={Mémoire de projet de fin d'études - La Platforme CityWatch},
+            pdfkeywords={CityWatch, Djagora, pfe, FSS, report, internship},
+            pdflang={fr},
+            pdfdisplaydoctitle=true,
+            colorlinks=true, % false
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            bookmarksnumbered=true,
+            pdfborder={0 0 0},
+            % Print version conf
+            hidelinks=true,
+            colorlinks=false,
+            linktocpage=true, % page numbers are clickable
+        }
+
+\urlstyle{same}  % don't use monospace font for urls
+% Make links footnotes instead of hotlinks:
+\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
+
+\usepackage{soul}
+
+\usepackage{authblk}
+\usepackage[acronym,toc]{glossaries}
+
+\usepackage{minted}
+%\usemintedstyle{borland}
+%\usemintedstyle{tango}
+\definecolor{darkBlue}{RGB}{4, 53, 98}
+\definecolor{lightBlue}{RGB}{102, 153, 204}
+\definecolor{lightGrey}{RGB}{245, 247, 249}
+\definecolor{magenta}{RGB}{177, 0, 89}
+\setminted{%
+    mathescape,
+    linenos=true,
+    numbersep=5pt,
+    frame=lines,
+    framesep=2mm,
+    %bgcolor=lightGrey,
+    %rulecolor=lightBlue,
+    %framerule=1.1pt,
+    tabsize=4,
+}
+
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+
+\usepackage{geometry}
+\geometry{%
+    left=3.5cm,
+    right=2.5cm,
+    paper=a4paper, % Change to letterpaper for US letter
+    %inner=2.5cm, % Inner margin
+    %outer=3.8cm, % Outer margin
+    %bindingoffset=.5cm, % Binding offset
+    top=3cm, % Top margin
+    bottom=2.5cm, % Bottom margin
+}
+
+\usepackage{sectsty}
+\allsectionsfont{\large\bfseries\scshape}
+
+\usepackage{titlesec}
+\newcommand{\hsp}{\hspace{20pt}}
+\definecolor{gray75}{gray}{0.75}
+\titleformat{\part}[block]{\Huge\bfseries}{\thepart\\}{0pt}{\centering\Huge\bfseries\scshape}
+\titleformat{\chapter}[block]{\Huge\bfseries}{\chaptername\ \thechapter:\ }{0pt}{\Huge\bfseries\scshape}
+\titleformat{\section}[block]{\LARGE\bfseries}{\thesection\ \ }{0pt}{\LARGE\bfseries}
+\titleformat{\subsection}[block]{\Large\bfseries}{\thesubsection \ }{0pt}{\Large \bfseries}
+\titleformat{\subsubsection}[block]{\large\bfseries}{\thesubsubsection \ }{0pt}{\large \bfseries}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage{titletoc}
+\titlecontents{chapter}% <section-type>
+  [0pt]% <left>
+  {\bfseries}% <above-code>
+  {\chaptername\ \thecontentslabel:\quad}% <numbered-entry-format>
+  {}% <numberless-entry-format>
+  {\hfill\contentspage}% <filler-page-format>
+
+\usepackage{fancyhdr}
+\usepackage[bottom]{footmisc}
+
+\usepackage{fancyvrb}
+\VerbatimFootnotes
+
+\makeglossaries
+\input{report/60-glossary}
+
+\title{La Plateforme CityWatch - Mémoire de Projet de Fin d'études}
+\author{Moez Bouhlel}
+\author{Rihab Majdoub}
+\affil{Faculté des Sciences de Sfax, Tunisie}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{arrows.meta}
+\tikzset{%
+  >={Latex[width=2mm,length=2mm]},
+  base/.style = {rectangle, rounded corners, draw=black,
+      minimum width=4cm, minimum height=1cm,
+      text centered, font=\sffamily},
+  activityStarts/.style = {base, fill=blue!30},
+  startstop/.style = {base, fill=red!30},
+  activityRuns/.style = {base, fill=green!30},
+  process/.style = {base, minimum width=2.5cm, fill=orange!15, font=\ttfamily},
+}
+
+\begin{document}
+
+\input{report/00-title}
+
+\pagestyle{empty}
+\pagenumbering{roman}
+
+% \include{report/01-quote}
+\cleardoublepage
+\include{report/03-dedicaces}
+\cleardoublepage
+\include{report/04-merci}
+\fancypagestyle{plain}{%
+    \fancyhf{}
+    \rfoot{\thepage}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+\pagestyle{plain}
+
+\setlength{\parskip}{0pt}
+\hypersetup{linkcolor=black}
+\setcounter{tocdepth}{2}
+
+\tableofcontents
+
+\clearpage
+\listoffigures
+
+\clearpage
+\listoftables
+
+\cleardoublepage
+\setlength{\parskip}{8pt}
+\renewcommand{\baselinestretch}{1.4}\normalsize
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
+\rhead{\thechapter  \ -- \ \nouppercase\leftmark}
+\rfoot{\thepage}
+\pagenumbering{arabic}
+
+\cleardoublepage
+\input{report/10-introduction}
+
+\cleardoublepage
+\input{report/20-cadreprojet}
+
+\cleardoublepage
+\include{report/30-sprints}
+\include{report/31-sprint0}
+\include{report/32-sprint1}
+\include{report/33-sprint2}
+\include{report/34-sprint3}
+
+\cleardoublepage
+\input{report/40-conclusion}
+
+\cleardoublepage
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ \ --\ \ #1}}
+%\appendix
+\renewcommand{\chaptername}{Annexe}
+\titlecontents{chapter}% <section-type>
+  [0pt]% <left>
+  {\bfseries}% <above-code>
+  {Annexe\ \thecontentslabel:\quad}% <numbered-entry-format>
+  {}% <numberless-entry-format>
+  {\hfill\contentspage}% <filler-page-format>
+\begin{appendices}
+\input{report/50-api-documentation}
+%\input{report/51-code-quality}
+\input{report/52-database}
+\end{appendices}
+
+\cleardoublepage
+\fancypagestyle{plain}{%
+    \fancyhf{}
+    \rfoot{\thepage}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+\pagestyle{plain}
+
+% \printglossary[type=\acronymtype]
+%\addcontentsline{toc}{section}{Glossaire des Acronymes}
+\glossarystyle{listgroup}
+\glsaddall
+\printglossaries
+
+\clearpage
+\nocite{*}
+\printbibheading
+\printbibliography[keyword={Standard},heading=subbibliography,title={Standards}]
+\printbibliography[notkeyword={Standard},heading=subbibliography,title={Autres Sources}]
+\include{report/02-abstract}
+
+\end{document}
